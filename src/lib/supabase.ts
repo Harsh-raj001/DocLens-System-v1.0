@@ -10,7 +10,7 @@ if (!supabaseUrl || !supabaseServiceKey) {
 
 // Create a single supabase client for interacting with your database
 // Note: We use the service role key to bypass RLS for backend operations (creating documents/chunks)
-export const supabase = createClient(supabaseUrl || "", supabaseServiceKey || "", {
+export const supabase = createClient(supabaseUrl || "https://dummy.supabase.co", supabaseServiceKey || "dummy", {
   auth: {
     persistSession: false,
   },
