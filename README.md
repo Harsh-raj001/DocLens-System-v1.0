@@ -1,3 +1,12 @@
+# DocLens System v1.0
+
+## About
+DocLens is an AI-powered project designed to instantly parse, summarize, and extract actionable insights from your PDF documents securely and efficiently.
+
+**Live Website:** [https://doc-lens-system-v1-0-uzh2.vercel.app/](https://doc-lens-system-v1-0-uzh2.vercel.app/)
+
+---
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
