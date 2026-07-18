@@ -107,7 +107,7 @@ export default function UploadPage() {
         {/* Upload Zone */}
         <div className="w-full relative">
           <AnimatePresence mode="wait">
-            {(status === "idle" || status === "failed") && (
+            {true && (
               <motion.div
                 key="upload-zone"
                 initial={{ opacity: 0, scale: 0.95 }}
