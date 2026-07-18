@@ -1,0 +1,99 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: var(--radius-sm-val);
+  --radius-md: var(--radius-md-val);
+  --radius-lg: var(--radius-lg-val);
+  --radius-xl: var(--radius-xl-val);
+  --radius-2xl: var(--radius-2xl-val);
+  --radius-3xl: var(--radius-3xl-val);
+
+  /* DocLens Custom Extensions */
+  --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-info: var(--info);
+  
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains);
+}
+
+:root {
+  /* Enforce Dark Mode as Default */
+  --background: #0A0F1E;
+  --foreground: #F8FAFC;
+  
+  --card: #1A2235;
+  --card-foreground: #F8FAFC;
+  
+  --popover: #1A2235;
+  --popover-foreground: #F8FAFC;
+  
+  --primary: #4F7DFF;
+  --primary-foreground: #ffffff;
+  
+  --secondary: #121827;
+  --secondary-foreground: #CBD5E1;
+  
+  --muted: #121827;
+  --muted-foreground: #94A3B8;
+  
+  --accent: #1A2235;
+  --accent-foreground: #F8FAFC;
+  
+  --destructive: #EF4444;
+  --border: rgba(255, 255, 255, 0.08); /* Subtle borders */
+  --input: rgba(255, 255, 255, 0.1);
+  --ring: #4F7DFF;
+  
+  /* Radii Scale */
+  --radius-sm-val: 4px;
+  --radius-md-val: 8px;
+  --radius-lg-val: 12px;   /* Buttons */
+  --radius-xl-val: 14px;   /* Inputs */
+  --radius-2xl-val: 20px;  /* Cards */
+  --radius-3xl-val: 24px;  /* Dialogs */
+  
+  /* Brand additions */
+  --brand: #4F7DFF;
+  --brand-hover: #6C8FFF;
+  --success: #22C55E;
+  --warning: #F59E0B;
+  --info: #06B6D4;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-brand/30 selection:text-foreground;
+  }
+  html {
+    color-scheme: dark;
+  }
+}
