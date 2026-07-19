@@ -6,7 +6,7 @@ DocLens is an AI-powered project designed to instantly parse, summarize, and ext
 
 **Live Website:** [https://doc-lens-system-v1-0-uzh2.vercel.app/](https://doc-lens-system-v1-0-uzh2.vercel.app/)
 
-**PRD:** https://gravel-citrine-12a.notion.site/DocLens-System-v1-0-3a1142fbea2d804dacd7e03b8536396b?source=copy_link(https://gravel-citrine-12a.notion.site/DocLens-System-v1-0-3a1142fbea2d804dacd7e03b8536396b?source=copy_link)
+**PRD:** https://gravel-citrine-12a.notion.site/DocLens-System-v1-0-3a1142fbea2d804dacd7e03b8536396b?source=copy_link
 ---
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
