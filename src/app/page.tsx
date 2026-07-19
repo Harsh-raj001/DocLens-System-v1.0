@@ -177,17 +177,17 @@ export default function UploadPage() {
                   </div>
                   <ul className="list-disc list-inside space-y-2 ml-1 text-xs leading-relaxed opacity-90">
                     <li>
-                      <strong>Hybrid Model Advantage:</strong> Thanks to our hybrid AI architecture, we can now confidently process and analyze large documents (60+ pages) without breaking a sweat!
+                      <strong>Hybrid Model Advantage:</strong> Thanks to our hybrid AI architecture, we can process and analyze large documents (60+ pages) without breaking a sweat.
                     </li>
                     <li className="text-red-400 font-medium">
                       <span className="inline-flex items-center gap-1 -mb-1">
                         <AlertTriangle className="w-3 h-3 text-red-400" />
                         <strong>55% Freeze / Quota Limit:</strong>
                       </span>{" "}
-                      If your document gets stuck exactly at 55%, it means the Gemini API daily quota has been exhausted. You will need to wait for the quota to reset (approx 24 hours).
+                      If processing stops at exactly 55%, the Gemini API daily quota has likely been exhausted. Wait for the quota to reset (usually within 24 hours) and try again.
                     </li>
                     <li>
-                      <strong>Text-Based Only:</strong> If your PDF is scanned images, the AI will confidently read absolutely nothing.
+                      <strong>Text-Based PDFs Only:</strong> If your PDF contains scanned images instead of selectable text, our AI will politely stare at it. Upload a text-based PDF for the best results.
                     </li>
                   </ul>
                 </motion.div>
