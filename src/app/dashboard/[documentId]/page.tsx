@@ -1,7 +1,7 @@
 "use client";
 
 import { use, useEffect, useState } from "react";
-import { ArrowLeft, FileText, CheckCircle2, Loader2, Send, Sparkles, Layers, Server, BrainCircuit, FileSearch } from "lucide-react";
+import { ArrowLeft, FileText, CheckCircle2, Loader2, Send, Sparkles, Layers, Server, BrainCircuit, FileSearch, AlertTriangle } from "lucide-react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -217,15 +217,34 @@ export default function DashboardPage({ params }: { params: Promise<{ documentId
         )}
 
         {docStatus?.status === "failed" && (
-          <motion.div variants={fadeUp} className="flex flex-col items-center justify-center py-20">
-             <Card className="w-full max-w-2xl bg-destructive/10 border-destructive/30 p-8 text-center">
-                <h2 className="text-2xl font-semibold text-red-400 mb-2">Processing Failed</h2>
-                <p className="text-muted-foreground">{docStatus.error_message || "An unexpected error occurred during AI processing."}</p>
-                <Link href="/">
-                  <Button className="mt-6 bg-secondary hover:bg-secondary/80">Try Another Document</Button>
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={springConfig}
+              className="bg-secondary/90 border border-white/10 rounded-2xl p-8 max-w-md w-full shadow-2xl relative overflow-hidden"
+            >
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-500 to-orange-500" />
+              <div className="mb-6 flex justify-center">
+                <div className="w-16 h-16 bg-red-500/10 rounded-full flex items-center justify-center border border-red-500/20">
+                  <AlertTriangle className="h-8 w-8 text-red-500" />
+                </div>
+              </div>
+              <h2 className="text-2xl font-bold text-white text-center mb-3">Limit Reached</h2>
+              <p className="text-muted-foreground text-center mb-8 text-[15px] leading-relaxed">
+                {docStatus.error_message?.includes("quota") || docStatus.error_message?.includes("limit") 
+                  ? "The Gemini API daily limit has been exhausted. The problem is not in the code, but today's API quota is finished. Please try again after a day." 
+                  : (docStatus.error_message || "An unexpected error occurred during AI processing.")}
+              </p>
+              <div className="flex justify-center">
+                <Link href="/" className="w-full">
+                  <Button className="bg-white text-black hover:bg-white/90 w-full h-12 text-base rounded-xl font-medium">
+                    Return Home
+                  </Button>
                 </Link>
-             </Card>
-          </motion.div>
+              </div>
+            </motion.div>
+          </div>
         )}
 
         {!isProcessing && docStatus?.status === "completed" && (

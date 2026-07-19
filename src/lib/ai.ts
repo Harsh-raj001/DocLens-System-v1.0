@@ -75,17 +75,18 @@ export async function testAIConnection(): Promise<boolean> {
   }
 }
 
-/**
- * Generates embeddings for an array of strings concurrently using Promise.all
- */
 export async function generateEmbeddingsBatch(texts: string[]): Promise<number[][]> {
   try {
     if (texts.length === 0) return [];
     
-    // Execute all embedding generation concurrently
-    const embeddings = await Promise.all(
-      texts.map(text => generateEmbedding(text))
-    );
+    // Process sequentially to avoid rate limits
+    const embeddings: number[][] = [];
+    for (const text of texts) {
+      const embedding = await generateEmbedding(text);
+      embeddings.push(embedding);
+      // Small delay between requests to be safe
+      await new Promise(resolve => setTimeout(resolve, 500));
+    }
     
     return embeddings;
   } catch (error) {

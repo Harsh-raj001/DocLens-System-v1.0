@@ -3,7 +3,7 @@
 import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { UploadCloud, FileText, CheckCircle2, AlertCircle, Sparkles, Server, BrainCircuit, FileSearch } from "lucide-react";
+import { UploadCloud, FileText, CheckCircle2, AlertCircle, AlertTriangle, Sparkles, Server, BrainCircuit, FileSearch } from "lucide-react";
 import { toast } from "sonner";
 
 // Spring physics for all animations matching design system
@@ -169,16 +169,26 @@ export default function UploadPage() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2, ...springConfig }}
-                  className="mt-6 p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 text-sm text-amber-200/90 space-y-2 backdrop-blur-sm"
+                  className="mt-6 p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 text-sm text-amber-200/90 space-y-3 backdrop-blur-sm"
                 >
                   <div className="flex items-center gap-2 font-medium text-amber-400">
                     <AlertCircle className="w-4 h-4" />
                     <span>Free Tier Reality Check 💸</span>
                   </div>
-                  <ul className="list-disc list-inside space-y-1 ml-1 text-xs leading-relaxed opacity-80">
-                    <li><strong>The 5-Page Rule:</strong> We only process the first 5 pages of your PDF (our AI has a short attention span).</li>
-                    <li><strong>The 60-Second Timeout:</strong> 15 requests per minute limit. If you see an error, stare out a window for 60 seconds.</li>
-                    <li><strong>Text-Based Only:</strong> If your PDF is scanned images, the AI will confidently read absolutely nothing.</li>
+                  <ul className="list-disc list-inside space-y-2 ml-1 text-xs leading-relaxed opacity-90">
+                    <li>
+                      <strong>Hybrid Model Advantage:</strong> Thanks to our hybrid AI architecture, we can now confidently process and analyze large documents (60+ pages) without breaking a sweat!
+                    </li>
+                    <li className="text-red-400 font-medium">
+                      <span className="inline-flex items-center gap-1 -mb-1">
+                        <AlertTriangle className="w-3 h-3 text-red-400" />
+                        <strong>55% Freeze / Quota Limit:</strong>
+                      </span>{" "}
+                      If your document gets stuck exactly at 55%, it means the Gemini API daily quota has been exhausted. You will need to wait for the quota to reset (approx 24 hours).
+                    </li>
+                    <li>
+                      <strong>Text-Based Only:</strong> If your PDF is scanned images, the AI will confidently read absolutely nothing.
+                    </li>
                   </ul>
                 </motion.div>
 
